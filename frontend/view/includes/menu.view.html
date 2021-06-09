@@ -1,0 +1,34 @@
+<header class="l-header" id="header">
+    <nav class="nav bd-container">
+        <a href="?page=home&op=view" class="nav__logo">WEBSITE</a>
+        <div class="nav__menu" id="nav-menu">
+            <ul class="nav__list">
+                <li><a href="#/home" class="nav__link" id="home">Home &nbsp;</a></li>
+                <li><a href="#/shop" class="nav__link" id="shop">Shop &nbsp;</a></li>
+                <li><a href="#/contact" class="nav__link" id="contact">Contact &nbsp;</a></li>
+                <li><a href="#/cart" class="nav__link" id="cart">Cart &nbsp;</a></li>
+                <li><a href="#/login" ng-if="menu == false" class="nav__link" id="login">Log in</a></li>
+                <li><a href="#/logout" ng-if="menu == true" class="nav__link" id="logout">Log out</a></li>
+            </ul>
+        </div>
+        <div class="nav__toggle" id="nav-toggle">
+            <i class='bx bx-menu'></i>
+        </div>
+        <div class="search__container">
+            <select class="main-select" id="sexo" ng-model="selected_sexo" ng-change="click_categoria(selected_sexo)"> 
+                <option value="">Sexo</option>
+                <option ng-repeat="sex in sexo" value="{{sex.sexo}}">{{sex.sexo}}</option>
+            </select>
+            <select class="main-select" id="categoria" ng-model="selected_categoria">
+                <option value="">Categoria</option>
+                <option class="search-description" ng-repeat="cat in categoria" value="{{cat.categoria}}">{{cat.categoria}}</option>
+            </select>
+            <input type="text" class="main-input" id="autocom" ng-model="autocomplete" ng-change="click_autocomplete(selected_sexo, selected_categoria, autocomplete)"/>
+            <div id="search_complete">
+                <div id="search_auto" ng-click="click_search(selected_sexo, selected_categoria, com.nombre)" ng-repeat="com in complete">{{com.nombre}}</div>
+            </div>
+            <input class="main-submit" type="button" ng-click="click_search(selected_sexo, selected_categoria, autocomplete)" value="Search"/>
+        </div>
+    </nav>
+</header>
+
